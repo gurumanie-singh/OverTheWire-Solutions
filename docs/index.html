@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gurumanie Singh | Portfolio</title>
+  <title>OverTheWire Solutions Guide</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Inter Font for a minimal, sleek look -->
@@ -15,67 +15,58 @@
 
 <body class="font-sans bg-gray-900 text-gray-100 transition-all">
 
-  <!-- Sticky Nav with only name -->
-  <header class="w-full p-6 bg-gray-800 shadow-md sticky top-0 z-50">
-    <h1 class="text-2xl font-semibold">Gurumanie Singh</h1>
+  <!-- Sticky Nav with site title and level links -->
+  <header class="w-full p-6 bg-gray-800 shadow-md sticky top-0 z-50 flex justify-between items-center">
+    <h1 class="text-2xl font-semibold">OverTheWire Solutions Guide</h1>
+    <nav class="space-x-4">
+      <a href="level0.html" class="text-gray-300 hover:text-white">Level 0</a>
+      <a href="level1.html" class="text-gray-300 hover:text-white">Level 1</a>
+      <a href="level2.html" class="text-gray-300 hover:text-white">Level 2</a>
+    </nav>
   </header>
 
   <!-- Hero Section -->
   <section id="hero" class="text-center py-20 px-4" data-aos="fade-up">
-    <h2 class="text-4xl font-semibold mb-4">Welcome to My Portfolio</h2>
-    <p class="text-lg max-w-2xl mx-auto">Hi, I'm Gurumanie — a developer passionate about cybersecurity and networks.
+    <h2 class="text-4xl font-semibold mb-4">Welcome to the OverTheWire Solutions Guide</h2>
+    <p class="text-lg max-w-2xl mx-auto">
+      Explore step-by-step walkthroughs and explanations for each OverTheWire Bandit level. Click on a level below
+      to view its solution.
     </p>
   </section>
 
   <!-- OverTheWire Solutions Section -->
   <section id="overthewire" class="py-16 px-4" data-aos="fade-up">
-    <h3 class="text-3xl font-medium text-center mb-8">OverTheWire Solutions</h3>
+    <h3 class="text-3xl font-medium text-center mb-8">Available Level Solutions</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
       <!-- Level 0 Card -->
       <div class="bg-gray-800 rounded-lg shadow p-6 hover:shadow-lg transition">
         <h4 class="text-2xl font-medium mb-2">Level 0: SSH Login</h4>
-        <a href="level0.html" class="text-blue-400 hover:underline">View Solution</a>
+        <p class="text-sm mb-4">Learn how to log in via SSH and retrieve the password for the next level.</p>
+        <a href="level0.html" class="inline-block mt-2 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+          View Solution
+        </a>
       </div>
 
       <!-- Level 1 Card -->
       <div class="bg-gray-800 rounded-lg shadow p-6 hover:shadow-lg transition">
         <h4 class="text-2xl font-medium mb-2">Level 1: File Permissions</h4>
-        <a href="level1.html" class="text-blue-400 hover:underline">View Solution</a>
+        <p class="text-sm mb-4">Understand file permissions and find the hidden password file.</p>
+        <a href="level1.html" class="inline-block mt-2 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+          View Solution
+        </a>
       </div>
 
       <!-- Level 2 Card -->
       <div class="bg-gray-800 rounded-lg shadow p-6 hover:shadow-lg transition">
         <h4 class="text-2xl font-medium mb-2">Level 2: Read File with Spaces</h4>
-        <a href="level2.html" class="text-blue-400 hover:underline">View Solution</a>
+        <p class="text-sm mb-4">Learn to handle filenames with spaces and retrieve the next password.</p>
+        <a href="level2.html" class="inline-block mt-2 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+          View Solution
+        </a>
       </div>
 
     </div>
-  </section>
-
-  <!-- Achievements Section -->
-  <section id="achievements" class="py-16 px-4 bg-gray-800" data-aos="fade-up">
-    <h3 class="text-3xl font-medium text-center mb-6">Achievements</h3>
-    <ul class="list-disc list-inside text-lg max-w-xl mx-auto">
-      <li>Iowa State University President's List</li>
-      <li>CGPA: 3.85/4.00</li>
-    </ul>
-  </section>
-
-  <!-- Certifications Section -->
-  <section id="certifications" class="py-16 px-4" data-aos="fade-up">
-    <h3 class="text-3xl font-medium text-center mb-6">Certifications</h3>
-    <ul class="list-disc list-inside text-lg max-w-xl mx-auto">
-      <li>CompTIA Security+</li>
-      <li>CCNA (In Progress)</li>
-    </ul>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 px-4 bg-gray-800" data-aos="fade-up">
-    <h3 class="text-3xl font-medium text-center mb-6">Contact</h3>
-    <p class="text-center text-lg">
-      Email: <a href="mailto:dhiman@iastate.edu" class="text-blue-400 hover:underline">dhiman@iastate.edu</a>
-    </p>
   </section>
 
   <!-- AOS Initialization -->
