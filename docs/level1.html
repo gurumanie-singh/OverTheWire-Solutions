@@ -2,111 +2,135 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Level 1 Solution - OverTheWire Bandit</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <!-- AOS for scroll animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Level 1 Solution - OverTheWire Bandit</title>
+
+  <!-- ─────────── Tailwind gray‐palette override ─────────── -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gray: {
+              900: '#1b1b1b',
+              800: '#2d2d2d',
+              700: '#3f3f3f',
+              600: '#525252',
+              500: '#6b6b6b',
+              400: '#8a8a8a',
+              300: '#a8a8a8',
+              200: '#c7c7c7',
+              100: '#e1e1e1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ─────────── Tailwind CDN (after override) ─────────── -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ─────────── Inter Font (unchanged) ─────────── -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- ─────────── AOS for scroll animations (unchanged) ─────────── -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- ─────────── Link to your custom styles (styles.css) ─────────── -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="font-sans bg-gray-900 text-gray-100 transition-all">
+<body class="font-sans transition-all"
+      style="background: linear-gradient(180deg, #1b1b1b, #2d2d2d); color: #e1e1e1;">
 
-    <!-- Sticky Header with Back Link -->
-    <header class="w-full p-6 bg-gray-800 shadow-md sticky top-0 z-50 flex justify-between items-center">
-        <h1 class="text-2xl font-semibold">Level 1: Read File Named “-”</h1>
-        <a href="index.html" class="text-blue-400 hover:underline">← Back to Portfolio</a>
-    </header>
+  <!-- ─────────── Sticky Header with Back Link ─────────── -->
+  <header class="w-full p-6 bg-transparent shadow-md sticky top-0 z-50 flex justify-between items-center">
+    <h1 class="text-2xl font-semibold text-white">Level 1: Read File Named “-”</h1>
+    <a href="index.html" class="text-gray-100 hover:underline">← Back to Guide</a>
+  </header>
 
-    <!-- Content Container -->
-    <main class="max-w-2xl mx-auto py-12 px-4" data-aos="fade-up">
+  <!-- ─────────── Content Container ─────────── -->
+  <main class="max-w-2xl mx-auto py-12 px-4" data-aos="fade-up">
 
-        <!-- Goal Section -->
-        <section class="mb-8">
-            <h2 class="text-3xl font-medium mb-4">Level Goal</h2>
-            <p class="text-lg">
-                The password for the next level is stored in a file called <code>-</code> located in your home
-                directory.
-            </p>
-        </section>
+    <!-- Goal Section -->
+    <section class="mb-8">
+      <h2 class="text-3xl font-medium mb-4 text-white">Level Goal</h2>
+      <p class="text-lg text-gray-200">
+        The password for the next level is stored in a file called <code>-</code> located in your home directory.
+      </p>
+    </section>
 
-        <!-- Step-by-Step Solution -->
-        <section class="mb-8">
-            <h2 class="text-3xl font-medium mb-4">Step-by-Step Solution</h2>
+    <!-- Step-by-Step Solution -->
+    <section class="mb-8">
+      <h2 class="text-3xl font-medium mb-4 text-white">Step-by-Step Solution</h2>
 
-            <!-- Step 1: Exit Level 0 and SSH into Level 1 -->
-            <div class="mb-6">
-                <h3 class="text-2xl font-semibold mb-2">1. Exit Level 0 and SSH into Level 1</h3>
-                <p class="mb-2">
-                    After retrieving the Level 1 password from <code>readme</code>, exit the current SSH session:
-                </p>
-                <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto"><code>exit</code></pre>
-                <p class="mt-2">
-                    Then connect as <code>bandit1</code>. For example, if the Level 1 password was
-                    <em>f2f14efb574cd7b3bb7d6a19de566c82</em>, run:
-                </p>
-                <pre
-                    class="bg-gray-800 p-4 rounded-md overflow-x-auto"><code>ssh bandit1@bandit.labs.overthewire.org -p 2220</code></pre>
-                <p class="mt-2">
-                    Enter the Level 1 password when prompted.
-                </p>
-            </div>
+      <!-- Step 1: Exit Level 0 and SSH into Level 1 -->
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2 text-white">1. Exit Level 0 and SSH into Level 1</h3>
+        <p class="mb-2 text-gray-200">
+          After retrieving the Level 1 password from <code>readme</code>, exit the current SSH session:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>exit</code></pre>
+        <p class="mt-2 text-gray-200">
+          Then connect as <code>bandit1</code>. For example, if the Level 1 password was
+          <em>f2f14efb574cd7b3bb7d6a19de566c82</em>, run:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>
+ssh bandit1@bandit.labs.overthewire.org -p 2220
+        </code></pre>
+        <p class="mt-2 text-gray-200">
+          Enter the Level 1 password when prompted.
+        </p>
+      </div>
 
-            <!-- Step 2: Change Directory and List Files -->
-            <div class="mb-6">
-                <h3 class="text-2xl font-semibold mb-2">2. Change into Your Home Directory and List Files</h3>
-                <p class="mb-2">
-                    Once logged in as <code>bandit1</code>, ensure you're in your home directory (you start there by
-                    default). List files:
-                </p>
-                <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto"><code>ls</code></pre>
-                <p class="mt-2">
-                    You will see a single file named <code>-</code>. Because <code>-</code> is interpreted as an option,
-                    trying <code>cat -</code> fails:
-                </p>
-                <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto"><code>cat -</code></pre>
-                <p class="mt-2 text-red-400">
-                    This returns you to the shell prompt without showing the password, because <code>-</code> is treated
-                    as “read from stdin” rather than a filename.
-                </p>
-            </div>
+      <!-- Step 2: Change Directory and List Files -->
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2 text-white">2. Change into Your Home Directory and List Files</h3>
+        <p class="mb-2 text-gray-200">
+          Once logged in as <code>bandit1</code>, ensure you’re in your home directory (you start there by default). List files:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ls</code></pre>
+        <p class="mt-2 text-gray-200">
+          You will see a single file named <code>-</code>. Because <code>-</code> is interpreted as an option, trying <code>cat -</code> fails:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>cat -</code></pre>
+        <p class="mt-2 text-red-400">
+          This returns you to the shell prompt without showing the password, because <code>-</code> is treated as “read from stdin” rather than a filename.
+        </p>
+      </div>
 
-            <!-- Step 3: Read the File Named "-" -->
-            <div class="mb-6">
-                <h3 class="text-2xl font-semibold mb-2">3. Read the File by Specifying Its Path</h3>
-                <p class="mb-2">
-                    To force <code>cat</code> to treat <code>-</code> as a filename, prefix it with <code>./</code>:
-                </p>
-                <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto"><code>cat ./-</code></pre>
-                <p class="mt-2">
-                    This will display the Level 2 password.
-                </p>
-            </div>
+      <!-- Step 3: Read the File Named "-" -->
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2 text-white">3. Read the File by Specifying Its Path</h3>
+        <p class="mb-2 text-gray-200">
+          To force <code>cat</code> to treat <code>-</code> as a filename, prefix it with <code>./</code>:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>cat ./-</code></pre>
+        <p class="mt-2 text-gray-200">
+          This will display the Level 2 password.
+        </p>
+      </div>
 
-            <!-- Summary -->
-            <div class="mt-8">
-                <h3 class="text-2xl font-semibold mb-2">Summary &amp; Key Commands</h3>
-                <ul class="list-disc list-inside ml-4">
-                    <li><code>exit</code> : leave the current SSH session (Level 0).</li>
-                    <li><code>ssh bandit1@bandit.labs.overthewire.org -p 2220</code> : connect to Level 1 using the
-                        Level 1 password obtained from <code>readme</code>.</li>
-                    <li><code>ls</code> : list files in your home directory; you'll see a file named <code>-</code>.
-                    </li>
-                    <li><code>cat ./-</code> : read the contents of the file named “<code>-</code>” to retrieve the
-                        Level 2 password.</li>
-                </ul>
-            </div>
-        </section>
-    </main>
+      <!-- Summary -->
+      <div class="mt-8">
+        <h3 class="text-2xl font-semibold mb-2 text-white">Summary &amp; Key Commands</h3>
+        <ul class="list-disc list-inside ml-4 text-gray-200">
+          <li><code>exit</code> : leave the current SSH session (Level 0).</li>
+          <li><code>ssh bandit1@bandit.labs.overthewire.org -p 2220</code> : connect to Level 1 using the Level 1 password obtained from <code>readme</code>.</li>
+          <li><code>ls</code> : list files in your home directory; you’ll see a file named <code>-</code>.</li>
+          <li><code>cat ./-</code> : read the contents of the file named “<code>-</code>” to retrieve the Level 2 password.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-    <!-- AOS Initialization -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-    </script>
+  <!-- ─────────── AOS Initialization ─────────── -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 
 </html>

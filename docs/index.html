@@ -5,66 +5,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gurumanie Singh | OverTheWire Solutions Guide</title>
-  <!-- Tailwind CSS -->
+
+  <!-- 1) Override Tailwind's “gray” shades so they become neutral grays instead of bluish grays -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gray: {
+              900: '#1b1b1b',   /* a very dark neutral gray */
+              800: '#2d2d2d',   /* a slightly lighter neutral gray */
+              700: '#3f3f3f',   /* hover backgrounds, cards, etc. */
+              600: '#525252',
+              500: '#6b6b6b',
+              400: '#8a8a8a',
+              300: '#a8a8a8',
+              200: '#c7c7c7',
+              100: '#e1e1e1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- 2) Include Tailwind AFTER our custom tailwind.config override -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Inter Font for a minimal, sleek look -->
+
+  <!-- 3) Inter Font (unchanged) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <!-- AOS for scroll animations -->
+
+  <!-- 4) AOS (unchanged) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- 5) Our custom CSS overrides (see styles.css below) -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="font-sans bg-gray-900 text-gray-100 transition-all">
+<body class="font-sans transition-all" style="background: linear-gradient(180deg, #1b1b1b, #2d2d2d); color: #e1e1e1;">
 
-  <!-- Sticky Nav with site title and level links -->
-  <header class="w-full p-6 bg-gray-800 shadow-md sticky top-0 z-50 flex justify-between items-center">
-    <h1 class="text-2xl font-semibold">Gurumanie Singh | OverTheWire Solutions Guide</h1>
+  <!-- ===========================
+       HEADER (Sticky Nav)
+       =========================== -->
+  <header class="w-full p-6 bg-transparent sticky top-0 z-50 flex justify-between items-center">
+    <!-- Site title / logo -->
+    <h1 class="text-2xl font-semibold text-white">OverTheWire Solutions Guide</h1>
+    <!-- If you have navigation links, make sure they use text-gray-100 / text-white -->
+    <!-- Example nav (uncomment & adjust if you need a nav): 
+    <nav class="space-x-6 hidden md:flex">
+      <a href="index.html" class="text-gray-100 hover:text-white transition">Home</a>
+      <a href="level0.html" class="text-gray-100 hover:text-white transition">Level 0</a>
+      <a href="level1.html" class="text-gray-100 hover:text-white transition">Level 1</a>
+      <a href="level2.html" class="text-gray-100 hover:text-white transition">Level 2</a>
+    </nav>
+    -->
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="text-center py-20 px-4" data-aos="fade-up">
-    <h2 class="text-4xl font-semibold mb-4">Welcome to the OverTheWire Solutions Guide</h2>
-    <p class="text-lg max-w-2xl mx-auto">
-      Explore step-by-step walkthroughs and explanations for each OverTheWire (Bandit) levels. Click on a level below
+  <!-- ===========================
+       HERO SECTION
+       =========================== -->
+  <section id="hero" class="text-center py-16 px-4" data-aos="fade-up">
+    <h2 class="text-4xl font-semibold mb-4 text-white">Welcome to the OverTheWire Solutions Guide</h2>
+    <p class="text-lg max-w-2xl mx-auto text-gray-200">
+      Explore step-by-step walkthroughs and explanations for each OverTheWire (Bandit) level. Click on a level below
       to view its solution.
     </p>
   </section>
 
-  <!-- OverTheWire Solutions Section -->
+  <!-- ===========================
+       OVERTHEWIRE SOLUTIONS GRID
+       =========================== -->
   <section id="overthewire" class="py-16 px-4" data-aos="fade-up">
-    <h3 class="text-3xl font-medium text-center mb-8">Available Level Solutions</h3>
+    <h3 class="text-3xl font-medium text-center mb-8 text-white">Available Level Solutions</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
       <!-- Level 0 Card -->
-      <div class="bg-gray-800 rounded-lg shadow p-6 hover:shadow-lg transition">
-        <h4 class="text-2xl font-medium mb-2">Level 0: SSH Login</h4>
-        <p class="text-sm mb-4">Learn how to log in via SSH and retrieve the password for the next level.</p>
-        <a href="level0.html" class="inline-block mt-2 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+        <h4 class="text-2xl font-medium mb-2 text-white">Level 0: SSH Login</h4>
+        <p class="text-sm mb-4 text-gray-200">
+          Learn how to log in via SSH and retrieve the password for the next level.
+        </p>
+        <a href="level0.html"
+           class="inline-block bg-transparent mt-2 px-4 py-2 border border-gray-100 rounded-full text-gray-100 hover:bg-gray-700 transition">
           View Solution
         </a>
       </div>
 
       <!-- Level 1 Card -->
-      <div class="bg-gray-800 rounded-lg shadow p-6 hover:shadow-lg transition">
-        <h4 class="text-2xl font-medium mb-2">Level 1: File Permissions</h4>
-        <p class="text-sm mb-4">Understand file permissions and find the hidden password file.</p>
-        <a href="level1.html" class="inline-block mt-2 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+        <h4 class="text-2xl font-medium mb-2 text-white">Level 1: File Permissions</h4>
+        <p class="text-sm mb-4 text-gray-200">
+          Understand file permissions and find the hidden password file.
+        </p>
+        <a href="level1.html"
+           class="inline-block bg-transparent mt-2 px-4 py-2 border border-gray-100 rounded-full text-gray-100 hover:bg-gray-700 transition">
           View Solution
         </a>
       </div>
 
       <!-- Level 2 Card -->
-      <div class="bg-gray-800 rounded-lg shadow p-6 hover:shadow-lg transition">
-        <h4 class="text-2xl font-medium mb-2">Level 2: Read File with Spaces</h4>
-        <p class="text-sm mb-4">Learn to handle filenames with spaces and retrieve the next password.</p>
-        <a href="level2.html" class="inline-block mt-2 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+        <h4 class="text-2xl font-medium mb-2 text-white">Level 2: Read File with Spaces</h4>
+        <p class="text-sm mb-4 text-gray-200">
+          Learn to handle filenames with spaces and retrieve the next password.
+        </p>
+        <a href="level2.html"
+           class="inline-block bg-transparent mt-2 px-4 py-2 border border-gray-100 rounded-full text-gray-100 hover:bg-gray-700 transition">
           View Solution
         </a>
       </div>
 
+      <!-- … Add additional level cards here exactly the same way … -->
     </div>
   </section>
 
-  <!-- AOS Initialization -->
+  <!-- AOS Initialization (unchanged) -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
