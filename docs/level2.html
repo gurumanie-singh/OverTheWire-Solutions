@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Level 2 Solution - OverTheWire Bandit</title>
 
-  <!-- ─────────── Tailwind gray‐palette override ─────────── -->
+  <!-- Override Tailwind’s gray palette with neutral grays -->
   <script>
     tailwind.config = {
       theme: {
@@ -29,32 +28,27 @@
     }
   </script>
 
-  <!-- ─────────── Tailwind CDN (after override) ─────────── -->
+  <!-- Tailwind CSS (after override) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- ─────────── Inter Font (unchanged) ─────────── -->
+  <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- ─────────── AOS for scroll animations (unchanged) ─────────── -->
+  <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- ─────────── Link to your custom styles (styles.css) ─────────── -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Custom overrides -->
+  <link rel="stylesheet" href="../docs/css/styles.css" />
 </head>
-
 <body class="font-sans transition-all"
       style="background: linear-gradient(180deg, #1b1b1b, #2d2d2d); color: #e1e1e1;">
 
-  <!-- ─────────── Sticky Header with Back Link ─────────── -->
-  <header class="w-full p-6 bg-transparent shadow-md sticky top-0 z-50 flex justify-between items-center">
+  <header class="w-full p-6 bg-transparent sticky top-0 flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-white">Level 2: Read File with Spaces</h1>
     <a href="index.html" class="text-gray-100 hover:underline">← Back to Guide</a>
   </header>
 
-  <!-- ─────────── Content Container ─────────── -->
   <main class="max-w-2xl mx-auto py-12 px-4" data-aos="fade-up">
-
-    <!-- Goal Section -->
     <section class="mb-8">
       <h2 class="text-3xl font-medium mb-4 text-white">Level Goal</h2>
       <p class="text-lg text-gray-200">
@@ -62,11 +56,9 @@
       </p>
     </section>
 
-    <!-- Step-by-Step Solution -->
     <section class="mb-8">
       <h2 class="text-3xl font-medium mb-4 text-white">Step-by-Step Solution</h2>
 
-      <!-- Step 1: SSH into Level 2 -->
       <div class="mb-6">
         <h3 class="text-2xl font-semibold mb-2 text-white">1. Exit Level 1 and SSH into Level 2</h3>
         <p class="mb-2 text-gray-200">
@@ -74,18 +66,14 @@
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>exit</code></pre>
         <p class="mt-2 text-gray-200">
-          Then connect as <code>bandit2</code>. For example, if the Level 2 password was
-          <em>9c9f5072485db6fdfb7cbcb620f9106a</em>, run:
+          Then connect as <code>bandit2</code>. For example, if the Level 2 password was <em>9c9f5072485db6fdfb7cbcb620f9106a</em>, run:
         </p>
-        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>
-ssh bandit2@bandit.labs.overthewire.org -p 2220
-        </code></pre>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ssh bandit2@bandit.labs.overthewire.org -p 2220</code></pre>
         <p class="mt-2 text-gray-200">
           Enter the Level 2 password when prompted.
         </p>
       </div>
 
-      <!-- Step 2: List Files and Identify the Target -->
       <div class="mb-6">
         <h3 class="text-2xl font-semibold mb-2 text-white">2. List Files in Your Home Directory</h3>
         <p class="mb-2 text-gray-200">
@@ -93,11 +81,10 @@ ssh bandit2@bandit.labs.overthewire.org -p 2220
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ls</code></pre>
         <p class="mt-2 text-gray-200">
-          You will see a single file named <code>spaces in this filename</code>. Because the name contains spaces, running <code>cat spaces in this filename</code> will treat each word as a separate argument and fail.
+          You will see a file named <code>spaces in this filename</code>. Because the name contains spaces, <code>cat spaces in this filename</code> will treat each word as a separate argument and fail.
         </p>
       </div>
 
-      <!-- Step 3: Read the File with Escaped Spaces or Quotes -->
       <div class="mb-6">
         <h3 class="text-2xl font-semibold mb-2 text-white">3. Read the File by Escaping Spaces or Using Quotes</h3>
         <p class="mb-2 text-gray-200">
@@ -113,25 +100,20 @@ ssh bandit2@bandit.labs.overthewire.org -p 2220
         </p>
       </div>
 
-      <!-- Summary -->
       <div class="mt-8">
         <h3 class="text-2xl font-semibold mb-2 text-white">Summary &amp; Key Commands</h3>
         <ul class="list-disc list-inside ml-4 text-gray-200">
-          <li><code>exit</code> : leave the current SSH session (Level 1).</li>
-          <li><code>ssh bandit2@bandit.labs.overthewire.org -p 2220</code> : connect to Level 2 using the Level 2 password obtained from <code>cat ./-</code>.</li>
-          <li><code>ls</code> : list files in your home directory; you’ll see <code>spaces in this filename</code>.</li>
-          <li><code>cat spaces\ in\ this\ filename</code> (escape spaces): read the contents to retrieve the Level 3 password.</li>
-          <li><code>cat "spaces in this filename"</code> (use quotes): alternative method to read the same file.</li>
+          <li><code>exit</code> : leave the SSH session (Level 1).</li>
+          <li><code>ssh bandit2@bandit.labs.overthewire.org -p 2220</code> : connect to Level 2.</li>
+          <li><code>ls</code> : list files; you'll see <code>spaces in this filename</code>.</li>
+          <li><code>cat spaces\ in\ this\ filename</code> : read the contents by escaping spaces.</li>
+          <li><code>cat "spaces in this filename"</code> : alternative: wrap the filename in quotes.</li>
         </ul>
       </div>
     </section>
   </main>
 
-  <!-- ─────────── AOS Initialization ─────────── -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
+  <script> AOS.init({ duration: 800, once: true }); </script>
 </body>
-
 </html>

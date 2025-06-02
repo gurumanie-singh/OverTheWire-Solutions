@@ -1,92 +1,76 @@
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-  color: #222;
-  font-size: 1em;
-}
-
-/* … (all of your existing HTML5 Boilerplate / H5BP CSS goes here) … */
-
-/* ========================================================================== 
-   END of HTML5 Boilerplate base styles
-   ========================================================================== */
-
-
-/* ========================================================================== 
-   CUSTOM THEME OVERRIDES (make sure this is appended LAST in styles.css)
-   ========================================================================== */
-
-/* 1) Force every <a> to be light gray/white (no more default browser-blue) */
-a,
-a:visited {
-  color: #e1e1e1; /* Tailwind’s gray-100 / “lightest gray” */
-  text-decoration: none;
-}
-
-a:hover {
-  color: #ffffff; /* pure white when hovered */
-}
-
-/* 2) Force all headings to be pure white for maximum contrast on dark bg */
+/* ----------------------------------------
+   Reset headings & links on dark background
+   ---------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   font-family: 'Inter', sans-serif;
   margin: 0;
 }
 
-/* 3) Body fallback (if Tailwind fails to load) */
-body {
-  background-color: #1b1b1b; /* fallback “dark gray” */
-  color: #e1e1e1;           /* fallback very light gray */
+a, a:visited {
+  color: #e1e1e1;
+  text-decoration: none;
 }
 
-/* 4) Override any .bg-gray-800 usages to be our exact neutral shade */
+a:hover {
+  color: #ffffff;
+}
+
+/* ------------------------------
+   Force Tailwind gray replacements
+   ------------------------------ */
+.bg-gray-900 {
+  background-color: #1b1b1b !important;
+}
+
 .bg-gray-800 {
   background-color: #2d2d2d !important;
-  border-radius: 0.5rem; /* same as Tailwind’s rounded-lg */
 }
 
-/* 5) Button/link override for .inline-block (our “View Solution” pills) */
+.bg-gray-700 {
+  background-color: #3f3f3f !important;
+}
+
+.text-gray-100 {
+  color: #e1e1e1 !important;
+}
+
+.border-gray-100 {
+  border-color: #e1e1e1 !important;
+}
+
+/* ------------------------------
+   Button/Card overrides
+   ------------------------------ */
 a.inline-block {
   background-color: transparent !important;
-  border: 1px solid #e1e1e1; /* white-ish border */
+  border: 1px solid #e1e1e1;
   color: #e1e1e1 !important;
-  border-radius: 9999px;      /* fully rounded, same as Tailwind rounded-full */
+  border-radius: 9999px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a.inline-block:hover {
-  background-color: #3f3f3f; /* Tailwind’s gray-700 (#3f3f3f) */
+  background-color: #3f3f3f;
   color: #ffffff !important;
 }
 
-/* 6) Ensure lists appear in light gray on dark background */
+/* ---------------------------------------
+   List styling on dark background
+   --------------------------------------- */
 ul {
   list-style-type: disc;
   padding-left: 1.5rem;
-  color: #e1e1e1; /* list text is light gray */
+  color: #e1e1e1;
 }
 
 ul li::marker {
-  color: #e1e1e1; /* bullet is light gray */
+  color: #e1e1e1;
 }
 
-/* 7) AOS animated elements stay visible on dark background */
+/* ---------------------------------------
+   Ensure AOS animations remain visible
+   --------------------------------------- */
 [data-aos] {
   opacity: 1 !important;
 }
-
-/* ========================================================================== 
-   END OF CUSTOM OVERRIDES
-   ========================================================================== */

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Level 0 Solution - OverTheWire Bandit</title>
 
-  <!-- ─────────── 1) Tailwind gray‐palette override ─────────── -->
+  <!-- Override Tailwind’s gray palette with neutral grays -->
   <script>
     tailwind.config = {
       theme: {
@@ -29,33 +28,27 @@
     }
   </script>
 
-  <!-- ─────────── 2) Load Tailwind after our override ─────────── -->
+  <!-- Tailwind CSS (after override) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- ─────────── 3) Inter Font (unchanged) ─────────── -->
+  <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- ─────────── 4) AOS for scroll animations (unchanged) ─────────── -->
+  <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- ─────────── 5) Link your custom overrides ─────────── -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Custom overrides -->
+  <link rel="stylesheet" href="../docs/css/styles.css" />
 </head>
-
 <body class="font-sans transition-all"
       style="background: linear-gradient(180deg, #1b1b1b, #2d2d2d); color: #e1e1e1;">
 
-  <!-- ─────────── Sticky Header with Back Link ─────────── -->
-  <header class="w-full p-6 bg-transparent shadow-md sticky top-0 z-50 flex justify-between items-center">
+  <header class="w-full p-6 bg-transparent sticky top-0 flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-white">Level 0: SSH Login</h1>
-    <!-- Change text-blue-400 → text-gray-100 or text-white -->
     <a href="index.html" class="text-gray-100 hover:underline">← Back to Guide</a>
   </header>
 
-  <!-- ─────────── Content Container ─────────── -->
   <main class="max-w-2xl mx-auto py-12 px-4" data-aos="fade-up">
-
-    <!-- Level 0 Goal Section -->
     <section class="mb-8">
       <h2 class="text-3xl font-medium mb-4 text-white">Level 0 Goal</h2>
       <p class="text-lg text-gray-200">
@@ -72,11 +65,9 @@
       </p>
     </section>
 
-    <!-- Step-by-Step Solution -->
     <section class="mb-8">
       <h2 class="text-3xl font-medium mb-4 text-white">Step-by-Step Solution</h2>
 
-      <!-- Step 1 -->
       <div class="mb-6">
         <h3 class="text-2xl font-semibold mb-2 text-white">1. Check the SSH manual</h3>
         <p class="mb-2 text-gray-200">
@@ -84,7 +75,7 @@
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>man ssh</code></pre>
         <p class="mt-2 text-gray-200">
-          In the manual, you'll discover:
+          In the manual, you'll see:
         </p>
         <ul class="list-disc list-inside ml-4 mt-2 text-gray-200">
           <li><code>-p &lt;port&gt;</code> to set a custom port</li>
@@ -92,17 +83,16 @@
         </ul>
       </div>
 
-      <!-- Step 2 -->
       <div class="mb-6">
         <h3 class="text-2xl font-semibold mb-2 text-white">2. Connect via SSH</h3>
         <p class="mb-2 text-gray-200">
-          Run the following command (either form works). This logs you in as <code>bandit0</code> on port 2220:
+          Run one of the following commands (they are equivalent). This logs you in as <code>bandit0</code> on port 2220:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>
-# Option A: use -p and -l flags
+# Option A:
 ssh -p 2220 -l bandit0 bandit.labs.overthewire.org
 
-# Option B: embed the username directly
+# Option B:
 ssh bandit0@bandit.labs.overthewire.org -p 2220
         </code></pre>
         <p class="mt-2 text-gray-200">
@@ -110,15 +100,14 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
         </p>
       </div>
 
-      <!-- Step 3 -->
       <div class="mb-6">
-        <h3 class="text-2xl font-semibold mb-2 text-white">3. View the “readme” file</h3>
+        <h3 class="text-2xl font-semibold mb-2 text-white">3. View the <code>readme</code> file</h3>
         <p class="mb-2 text-gray-200">
           After logging in, list the files in your home directory:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ls</code></pre>
         <p class="mt-2 text-gray-200">
-          You should see a single file named <code>readme</code>. To read its contents:
+          You should see a file named <code>readme</code>. To read its contents:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>cat readme</code></pre>
         <p class="mt-2 text-gray-200">
@@ -126,24 +115,19 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
         </p>
       </div>
 
-      <!-- Summary -->
       <div class="mt-8">
         <h3 class="text-2xl font-semibold mb-2 text-white">Summary &amp; Key Commands</h3>
         <ul class="list-disc list-inside ml-4 text-gray-200">
-          <li><code>man ssh</code> : read the SSH manual to learn flags like <code>-p</code> and <code>-l</code>.</li>
-          <li><code>ssh bandit0@bandit.labs.overthewire.org -p 2220</code> : connect via SSH on port 2220.</li>
-          <li><code>ls</code> : list files in the current directory.</li>
-          <li><code>cat readme</code> : display the contents of the “readme” file (shows Level 1 password).</li>
+          <li><code>man ssh</code> : read SSH manual to learn flags like <code>-p</code> and <code>-l</code>.</li>
+          <li><code>ssh bandit0@bandit.labs.overthewire.org -p 2220</code> : connect via SSH.</li>
+          <li><code>ls</code> : list files.</li>
+          <li><code>cat readme</code> : display contents of <code>readme</code>.</li>
         </ul>
       </div>
     </section>
   </main>
 
-  <!-- ─────────── AOS Initialization ─────────── -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
+  <script> AOS.init({ duration: 800, once: true }); </script>
 </body>
-
 </html>
