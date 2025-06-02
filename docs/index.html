@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OverTheWire Solutions Guide</title>
 
-  <!-- 1) Override Tailwind’s gray palette with neutral grays -->
+  <!-- Override Tailwind’s gray palette with neutral grays -->
   <script>
     window.tailwind = window.tailwind || {};
     window.tailwind.config = {
@@ -31,22 +31,24 @@
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- 3) Inter font for clean typography -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <!-- 4) AOS CSS for scroll animations (optional) -->
+  <!-- If you have Less Sans Minimal hosted locally or via CDN, include it here.
+       For example, you might add:
+       <link rel="stylesheet" href="path/to/less-sans-minimal.css" /> 
+       or configure @font-face in your own CSS. -->
+       
+  <!-- AOS CSS for scroll animations (optional) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- 5) Your custom overrides -->
+  <!-- Your custom overrides -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body class="font-sans transition-all"
-      style="background: linear-gradient(180deg, #1b1b1b, #2d2d2d); color: #e1e1e1;">
+      style="font-family: 'Less Sans Minimal', sans-serif; background: linear-gradient(180deg, #1b1b1b, #2d2d2d); color: #e1e1e1;">
 
   <!-- Header -->
   <header class="w-full p-6 bg-transparent sticky top-0 flex justify-between items-center">
-    <h1 class="text-2xl font-semibold text-white">OverTheWire Solutions Guide</h1>
+    <h1 class="text-2xl font-semibold text-white">Gurumanie Singh | OverTheWire Solutions Guide</h1>
   </header>
 
   <!-- Hero Section -->
@@ -55,8 +57,7 @@
       Welcome to the OverTheWire Solutions Guide
     </h2>
     <p class="text-lg max-w-2xl mx-auto text-gray-200">
-      Explore step-by-step walkthroughs and explanations for each OverTheWire (Bandit) level.
-      Click on a level below to view its solution.
+      Step-by-step walkthroughs for each Bandit level. Select a level below to reveal its solution.
     </p>
   </section>
 
@@ -66,51 +67,70 @@
       Available Level Solutions
     </h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <!-- items-stretch makes all cards equal-height per row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
 
       <!-- Level 0 Card -->
-      <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-        <h4 class="text-2xl font-medium mb-2 text-white">Level 0: SSH Login</h4>
+      <div class="bg-gray-800 rounded-lg shadow-lg p-6 
+                  hover:shadow-xl transform hover:scale-105 transition-transform duration-200 ease-in-out 
+                  flex flex-col h-full">
+        <h4 class="text-2xl font-medium mb-2 text-white">
+          Level 0: SSH Login
+        </h4>
         <p class="text-sm mb-4 text-gray-200">
-          Learn how to log in via SSH and retrieve the password for the next level.
+          Log in via SSH and retrieve the next-level password.
         </p>
         <a href="level0.html"
-           class="inline-block bg-transparent mt-2 px-4 py-2 border border-gray-100 rounded-full text-gray-100 hover:bg-gray-700 transition">
+           class="mt-auto inline-block bg-transparent px-4 py-2 border border-gray-100 rounded-full text-gray-100 
+                  hover:bg-gray-700">
           View Solution
         </a>
       </div>
 
       <!-- Level 1 Card -->
-      <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-        <h4 class="text-2xl font-medium mb-2 text-white">Level 1: File Permissions</h4>
+      <div class="bg-gray-800 rounded-lg shadow-lg p-6 
+                  hover:shadow-xl transform hover:scale-105 transition-transform duration-200 ease-in-out 
+                  flex flex-col h-full">
+        <h4 class="text-2xl font-medium mb-2 text-white">
+          Level 1: File Permissions
+        </h4>
         <p class="text-sm mb-4 text-gray-200">
-          Understand file permissions and find the hidden password file.
+          Understand file permissions to locate the hidden password.
         </p>
         <a href="level1.html"
-           class="inline-block bg-transparent mt-2 px-4 py-2 border border-gray-100 rounded-full text-gray-100 hover:bg-gray-700 transition">
+           class="mt-auto inline-block bg-transparent px-4 py-2 border border-gray-100 rounded-full text-gray-100 
+                  hover:bg-gray-700">
           View Solution
         </a>
       </div>
 
       <!-- Level 2 Card -->
-      <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-        <h4 class="text-2xl font-medium mb-2 text-white">Level 2: Read File with Spaces</h4>
+      <div class="bg-gray-800 rounded-lg shadow-lg p-6 
+                  hover:shadow-xl transform hover:scale-105 transition-transform duration-200 ease-in-out 
+                  flex flex-col h-full">
+        <h4 class="text-2xl font-medium mb-2 text-white">
+          Level 2: Read Filename with Spaces
+        </h4>
         <p class="text-sm mb-4 text-gray-200">
-          Learn to handle filenames with spaces and retrieve the next password.
+          Handle filenames containing spaces to reveal the next password.
         </p>
         <a href="level2.html"
-           class="inline-block bg-transparent mt-2 px-4 py-2 border border-gray-100 rounded-full text-gray-100 hover:bg-gray-700 transition">
+           class="mt-auto inline-block bg-transparent px-4 py-2 border border-gray-100 rounded-full text-gray-100 
+                  hover:bg-gray-700">
           View Solution
         </a>
       </div>
 
-      <!-- Add more cards here if needed -->
+      <!-- …add more cards following the same pattern… -->
+
     </div>
   </section>
 
   <!-- AOS Initialization -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script> AOS.init({ duration: 800, once: true }); </script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 
 </html>
