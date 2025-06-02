@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Level 7 Solution - OverTheWire Bandit</title>
+
+  <!-- Override Tailwind’s gray palette -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gray: {
+              900: '#1b1b1b',
+              800: '#2d2d2d',
+              700: '#3f3f3f',
+              600: '#525252',
+              500: '#6b6b6b',
+              400: '#8a8a8a',
+              300: '#a8a8a8',
+              200: '#c7c7c7',
+              100: '#e1e1e1'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Custom overrides -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="font-sans transition-all"
+      style="background: linear-gradient(180deg, #1b1b1b, #2d2d2d); color: #e1e1e1;">
+
+  <header class="w-full p-6 bg-transparent sticky top-0 flex justify-between items-center">
+    <h1 class="text-2xl font-semibold text-white">Level 7: User &amp; Group Ownership</h1>
+    <a href="index.html" class="text-gray-100 hover:underline">← Back to Guide</a>
+  </header>
+
+  <main class="max-w-2xl mx-auto py-12 px-4" data-aos="fade-up">
+    <section class="mb-8">
+      <h2 class="text-3xl font-medium mb-4 text-white">Level Goal</h2>
+      <p class="text-lg text-gray-200">
+        Find the file in <code>inhere</code> that is owned by user <code>bandit7</code> and group <code>bandit6</code>.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-3xl font-medium mb-4 text-white">Step-by-Step Solution</h2>
+
+      <!-- Step 1 -->
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2 text-white">1. SSH into Level 7</h3>
+        <p class="mb-2 text-gray-200">
+          If not already at Level 6, run:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ssh bandit7@bandit.labs.overthewire.org -p 2220</code></pre>
+        <p class="mt-2 text-gray-200">
+          Enter the Level 6 password when prompted.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2 text-white">2. Change Into <code>inhere</code></h3>
+        <p class="mb-2 text-gray-200">
+          List your home directory and navigate:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ls  
+cd inhere</code></pre>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2 text-white">3. Find File by Ownership</h3>
+        <p class="mb-2 text-gray-200">
+          Use <code>find</code> to locate the file owned by <code>bandit7</code> and group <code>bandit6</code>:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>find . -type f -user bandit7 -group bandit6</code></pre>
+        <p class="mt-2 text-gray-200">
+          The output will show something like:
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>./targetfile</code></pre>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2 text-white">4. Read That File</h3>
+        <p class="mb-2 text-gray-200">
+          Display its contents (the Level 8 password):
+        </p>
+        <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>cat targetfile</code></pre>
+        <p class="mt-2 text-gray-200">
+          The printed string is the Level 8 password.
+        </p>
+      </div>
+
+      <!-- Summary -->
+      <div class="mt-8">
+        <h3 class="text-2xl font-semibold mb-2 text-white">Summary &amp; Key Commands</h3>
+        <ul class="list-disc list-inside ml-4 text-gray-200">
+          <li><code>ssh bandit7@bandit.labs.overthewire.org -p 2220</code> : log in as <code>bandit7</code>.</li>
+          <li><code>cd inhere</code> : enter the <code>inhere</code> directory.</li>
+          <li><code>find . -type f -user bandit7 -group bandit6</code> : locate the target file by ownership.</li>
+          <li><code>cat &lt;that-filename&gt;</code> : print the Level 8 password.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script> AOS.init({ duration: 800, once: true }); </script>
+</body>
+</html>
