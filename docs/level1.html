@@ -66,7 +66,7 @@
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>exit</code></pre>
         <p class="mt-2 text-gray-200">
-          Then connect as <code>bandit1</code>. For example, if the Level 1 password was <em>f2f14efb574cd7b3bb7d6a19de566c82</em>, run:
+          Then connect as <code>bandit1</code>:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ssh bandit1@bandit.labs.overthewire.org -p 2220</code></pre>
         <p class="mt-2 text-gray-200">
@@ -81,7 +81,7 @@
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ls</code></pre>
         <p class="mt-2 text-gray-200">
-          You will see a file named <code>-</code>. Because <code>-</code> is interpreted as an option, <code>cat -</code> fails:
+          You will see a file named <code>-</code>. Because <code>-</code> is interpreted as an option, the command <code>cat -</code> fails:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>cat -</code></pre>
         <p class="mt-2 text-gray-200 text-red-400">
@@ -104,7 +104,7 @@
         <h3 class="text-2xl font-semibold mb-2 text-white">Summary &amp; Key Commands</h3>
         <ul class="list-disc list-inside ml-4 text-gray-200">
           <li><code>exit</code> : leave the SSH session (Level 0).</li>
-          <li><code>ssh bandit1@bandit.labs.overthewire.org -p 2220</code> : connect to Level 1.</li>
+          <li><code>ssh bandit1@bandit.labs.overthewire.org -p 2220</code> : to connect to Level 1.</li>
           <li><code>ls</code> : list files; you'll see <code>-</code>.</li>
           <li><code>cat ./-</code> - read the contents of the file named “–” to get the Level 2 password.</li>
         </ul>

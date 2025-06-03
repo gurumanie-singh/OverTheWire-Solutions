@@ -44,7 +44,7 @@
       style="background: linear-gradient(180deg, #1b1b1b, #2d2d2d); color: #e1e1e1;">
 
   <header class="w-full p-6 bg-transparent sticky top-0 flex justify-between items-center">
-    <h1 class="text-2xl font-semibold text-white">Level 2: Read File with Spaces</h1>
+    <h1 class="text-2xl font-semibold text-white">Level 2: Spaces in Filename</h1>
     <a href="index.html" class="text-gray-100 hover:underline">← Back to Guide</a>
   </header>
 
@@ -62,54 +62,52 @@
       <div class="mb-6">
         <h3 class="text-2xl font-semibold mb-2 text-white">1. Exit Level 1 and SSH into Level 2</h3>
         <p class="mb-2 text-gray-200">
-          After retrieving the Level 2 password from <code>cat ./-</code>, exit the current SSH session:
+          After retrieving the Level 2 password from <code>-</code>, exit the current SSH session (Level 1):
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>exit</code></pre>
         <p class="mt-2 text-gray-200">
-          Then connect as <code>bandit2</code>. For example, if the Level 2 password was <em>9c9f5072485db6fdfb7cbcb620f9106a</em>, run:
+          Then, connect to Level 2 using the password for <code>bandit2</code>:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ssh bandit2@bandit.labs.overthewire.org -p 2220</code></pre>
-        <p class="mt-2 text-gray-200">
-          Enter the Level 2 password when prompted.
-        </p>
       </div>
 
       <div class="mb-6">
-        <h3 class="text-2xl font-semibold mb-2 text-white">2. List Files in Your Home Directory</h3>
+        <h3 class="text-2xl font-semibold mb-2 text-white">2. List Files in the Bandit2 Directory</h3>
         <p class="mb-2 text-gray-200">
-          Once logged in as <code>bandit2</code>, list files:
+          Once logged in as <code>bandit2</code>, list the files:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>ls</code></pre>
         <p class="mt-2 text-gray-200">
-          You will see a file named <code>spaces in this filename</code>. Because the name contains spaces, <code>cat spaces in this filename</code> will treat each word as a separate argument and fail.
+          You will see a file named <code>spaces in this filename</code>.
         </p>
       </div>
 
       <div class="mb-6">
-        <h3 class="text-2xl font-semibold mb-2 text-white">3. Read the File by Escaping Spaces or Using Quotes</h3>
+        <h3 class="text-2xl font-semibold mb-2 text-white">3. Read the File with Spaces</h3>
         <p class="mb-2 text-gray-200">
-          To correctly reference the file, either escape each space:
+          Since the filename contains spaces, either escape each space or quote the filename. For example:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>cat spaces\ in\ this\ filename</code></pre>
         <p class="mt-2 text-gray-200">
-          Or wrap the entire filename in quotes:
+          Alternatively, use quotes:
         </p>
         <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-gray-100"><code>cat "spaces in this filename"</code></pre>
         <p class="mt-2 text-gray-200">
-          Either command will display the Level 3 password.
+          This command will display the password for Level 3.
         </p>
       </div>
 
-      <div class="mt-8">
+      <div class="mb-6">
         <h3 class="text-2xl font-semibold mb-2 text-white">Summary &amp; Key Commands</h3>
         <ul class="list-disc list-inside ml-4 text-gray-200">
-          <li><code>exit</code> : leave the SSH session (Level 1).</li>
-          <li><code>ssh bandit2@bandit.labs.overthewire.org -p 2220</code> : connect to Level 2.</li>
-          <li><code>ls</code> : list files; you'll see <code>spaces in this filename</code>.</li>
-          <li><code>cat spaces\ in\ this\ filename</code> : read the contents by escaping spaces.</li>
-          <li><code>cat "spaces in this filename"</code> : alternative: wrap the filename in quotes.</li>
+          <li><code>exit</code> : return to your local machine from the Level 1 SSH session.</li>
+          <li><code>ssh bandit2@bandit.labs.overthewire.org -p 2220</code> : connect as <code>bandit2</code> on port 2220.</li>
+          <li><code>ls</code> : list files; shows <code>spaces in this filename</code>.</li>
+          <li><code>cat spaces\ in\ this\ filename</code> : display contents of the file with spaces.</li>
+          <li><code>cat "spaces in this filename"</code> : alternative method to display file contents.</li>
         </ul>
       </div>
+
     </section>
   </main>
 
