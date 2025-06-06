@@ -1,5 +1,4 @@
 # OverTheWire-Solutions
 Walkthrough of OverTheWire wargame levels, with Linux commands and explanations.
 
-Link to solutions:
-https://gurumanie-singh.github.io/OverTheWire-Solutions/
+⚠️ This project has moved! Please head over to my consolidated portfolio at github.com/gurumanie-singh/gurumanie-singh.github.io
